@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer bounds="tight" enable-pan src="gltf/scene.gltf" ios-src="Small_Mango_1.usdz" ar ar-modes="scene-viewer webxr quick-look" camera-controls environment-image="neutral" shadow-intensity="1">
+    <model-viewer bounds="tight" enable-pan src="mango.gltf" ar ar-modes="scene-viewer webxr quick-look" camera-controls environment-image="neutral" shadow-intensity="1">
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
@@ -22,9 +22,9 @@
 	  
 	  <div class="slider">
 		<div class="slides">
-		  <button class="slide selected" onclick="switchSrc(this, 'bottle1')" style="background-image: url('poster.webp');">
+		  <button class="slide selected" onclick="switchSrc(this, 'mango', 'mango.png')" style="background-image: url('mango.png');">
 
-		  </button><button class="slide" onclick="switchSrc(this, 'bottle2')" style="background-image: url('poster.webp');">
+		  </button><button class="slide" onclick="switchSrc(this, 'apple', 'apple.jpg')" style="background-image: url('apple.jpg');">
 		</div>
 	  </div>
 	  
@@ -36,10 +36,10 @@
 	<script type="module">
 	  const modelViewer = document.querySelector("model-viewer");
 
-	  window.switchSrc = (element, name) => {
+	  window.switchSrc = (element, name, poster) => {
 		const base = name;
 		modelViewer.src = base + '.glb';
-		modelViewer.poster = 'poster.webp';
+		modelViewer.poster = poster;
 		const slides = document.querySelectorAll(".slide");
 		slides.forEach((element) => {element.classList.remove("selected");});
 		element.classList.add("selected");
